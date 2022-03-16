@@ -6,7 +6,7 @@ const TaskFormComponent = ( props ) => {
 
   const [taskInput, setTaskInput] = useState({});
 
-  const updateInput = (event) => {
+  const updateInput = ( event ) => {
     setTaskInput({...taskInput, [event.target.id]:event.target.value});
   };
 

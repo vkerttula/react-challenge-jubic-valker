@@ -6,6 +6,8 @@ const TaskComponent = ( props ) => {
         props.onRemove(props.task.id);
     };
 
+    /* Details button TODO */
+
   return (
     <tr className='task'>
         <th className='name'>{props.task.name}</th>

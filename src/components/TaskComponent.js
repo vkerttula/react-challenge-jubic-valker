@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PopupComponent from './PopupComponent';
 
 const TaskComponent = ( props ) => {
 
-    const remove = () => {
-        props.onRemove(props.task.id);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handlePopup = () => {
+      setIsOpen(!isOpen);
     };
 
-    /* Details button TODO */
+    const remove = () => {
+        props.onRemove(props.task.id);
+        if(isOpen) handlePopup();
+    };
 
   return (
-    <tr className='task'>
-        <th className='name'>{props.task.name}</th>
+    <tr valign="top" className='task'>
+        <th className='name'><div>{props.task.name}</div></th>
         <th className='description'>{props.task.description}</th>
-        <th><button onClick={remove}>Delete</button></th>
-        <th><button>Details</button></th>
+        <th></th>
+        <th>
+          <button onClick={remove}>Delete</button>
+          <button onClick={handlePopup}>Details</button>
+        </th>
+        {isOpen && <PopupComponent
+          content={
+          <>
+            <h3>{props.task.name}</h3>
+            <p>Description: {props.task.description}</p>
+            <p>Comment: {props.task.comment}</p>
+            <button onClick={remove}>Delete</button>
+          </>}
+          handleClose={handlePopup}
+        />}
     </tr>
   )
 };

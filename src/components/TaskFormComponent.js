@@ -25,15 +25,21 @@ const TaskFormComponent = ( props ) => {
 
   return (
     <div className='inputs'>
-      <div>
-        <label>Name</label>
-        <input id="name" ref={nameInput} autoFocus onBlur={(event) => updateInput(event)}></input>
-        <label>Description</label>
-        <input id="description" type="text" onBlur={(event) => updateInput(event)}></input>
+      <div className='upper-inputs'>
+        <div className='name-box'>
+          <label>Name</label>
+          <input id='name' ref={nameInput} autoFocus onBlur={(event) => updateInput(event)}></input>
+        </div>
+        <div className='description-box'>
+          <label>Description</label>
+          <input id='description' onBlur={(event) => updateInput(event)}></input>
+        </div>
       </div>
-      <div>
-        <label>Comment</label>
-        <input id="comment" type="text" onBlur={(event) => updateInput(event)}></input>
+      <div className='lower-inputs'>
+        <div className='comment-box'>
+          <label>Comment</label>
+          <input id='comment' onBlur={(event) => updateInput(event)}></input>
+        </div>
       </div>
       <div className='buttons'>
         <button onClick={clearInput}>Clear</button>

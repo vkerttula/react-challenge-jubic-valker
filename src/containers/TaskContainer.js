@@ -41,7 +41,7 @@ const TaskContainer = () => {
             <table>
                 <tbody>
                     <tr className='head'>
-                        <th>Name</th><th>Description</th><th></th><th></th>
+                        <th><div>Name</div></th><th>Description</th><th></th><th></th>
                     </tr>
                     {allTasks&&allTasks.map((task, index) => (
                         <TaskComponent task={task} key={index} onRemove={handleRemove} />

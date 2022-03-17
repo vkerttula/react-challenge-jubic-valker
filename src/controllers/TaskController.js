@@ -7,7 +7,6 @@ export const getAllFromLocalStorage = () => {
         values.push(JSON.parse(localStorage.getItem(keys[i])));
     }
     values.sort((a, b) => (a.id > b.id) ? 1 : -1);
-    console.log(values);
     return(values);
 
 };
@@ -17,7 +16,6 @@ export const addTaskToLocalStorage = ( data ) => {
     let id = Object.keys(localStorage).length;
     data['id'] = id;
     localStorage.setItem("Task:" + id, JSON.stringify(data));
-    console.log("Added to localStorage with ID ", id);
 
 };
 
